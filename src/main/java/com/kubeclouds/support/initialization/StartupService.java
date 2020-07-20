@@ -1,7 +1,6 @@
 package com.kubeclouds.support.initialization;
 
 import com.kubeclouds.support.configuration.*;
-import com.onecloud.autotools.support.configuration.*;
 import com.kubeclouds.support.exception.Assertion;
 import com.kubeclouds.support.log.Log;
 import com.kubeclouds.support.log.SystemLog;
