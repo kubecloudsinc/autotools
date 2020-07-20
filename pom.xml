@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.onecloud</groupId>
-	<artifactId>autotools</artifactId>
+	<groupId>com.kubeclouds</groupId>
+	<artifactId>autotoolsv2</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>autotools Webapp</name>
 	<url>http://github/autotools/</url>
 
 	<properties>
-		<final-name>autotools</final-name>
+		<final-name>autotoolsv2</final-name>
 		<webapp-directory>C:\tomcat7\webapps</webapp-directory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<compiler-plugin-version>3.1</compiler-plugin-version>

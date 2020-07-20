@@ -74,7 +74,7 @@
 	</div>
    <div id="footer" class="navbar-fixed-bottom">
       <div class="container">
-        <p class="text-muted">&copy; 2020 kubecloudsinc.com</p>
+        <p class="text-muted"><strong>&copy; 2020 kubecloudsinc.com</strong></p>
       </div>
     </div>
 </body>
