@@ -1,0 +1,50 @@
+body {
+  padding-top: 60px;
+}
+
+.number {
+  text-align: right;
+}
+
+form .required {
+    font-weight: bold;
+}
+form .required label:after {
+    color: #e32;
+    content: '*';
+    display:inline;
+}
+.navbar-inner {
+    background-image: linear-gradient(rgb(215, 30, 43), rgb(17, 17, 17)) !important;
+    border-bottom: 4px solid rgb(252, 198, 10) !important;
+}
+#footer {
+    height: 70px;
+    background-color: rgb(215, 30, 43);
+    border-top: 4px solid rgb(252, 198, 10) !important;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+    color: rgb(255, 255, 255);
+    background-image: linear-gradient(rgb(215, 30, 43), rgb(17, 17, 17));
+    outline-offset: 0px;
+    background-color: rgb(215, 30, 43) !important;
+    outline: rgb(252, 198, 10) solid thin !important;
+}
+.btn-primary {
+    background-color: rgb(215, 30, 43) !important;
+    background-image: linear-gradient(rgb(215, 30, 43), rgb(17, 17, 17));
+}
+.btn-primary:active, .btn-primary.active{
+   background-color: rgb(215, 30, 43) !important;
+   background-image: linear-gradient(rgb(215, 30, 43), rgb(17, 17, 17));
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary.disabled, .btn-primary[disabled] {
+    color: #fff;
+    background-color: rgb(252, 198, 10) !important;
+    background-position: 0 -4px;
+
+}
+.btn:focus {
+    outline: thin solid rgb(252, 198, 10);
+    outline-offset: 0px;
+}
