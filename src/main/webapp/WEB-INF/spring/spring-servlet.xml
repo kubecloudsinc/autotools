@@ -14,7 +14,7 @@
 
 	<mvc:annotation-driven />
 
-	<context:component-scan base-package="com.onecloud.autotools.web" />
+	<context:component-scan base-package="com.kubeclouds.web" />
 	<context:annotation-config />
 	
 	<mvc:resources mapping="/reports/**" location="/reports/" />
@@ -37,43 +37,43 @@
 	<mvc:view-controller path="/access_denied.html"	view-name="accessDenied" />
 
 	<mvc:interceptors>
-		<bean class="com.onecloud.autotools.web.UserContextInterceptor" />
+		<bean class="com.kubeclouds.web.UserContextInterceptor" />
 	</mvc:interceptors>
 
 	<bean name="/users.html"
-		class="com.onecloud.autotools.web.IdentifiableEntityListController"
+		class="com.kubeclouds.web.IdentifiableEntityListController"
 		p:dao-ref="userDao" p:viewName="userList" />
 
 	<bean name="/user.html"
-		class="com.onecloud.autotools.web.IdentifiableEntityGetController"
+		class="com.kubeclouds.web.IdentifiableEntityGetController"
 		p:dao-ref="userDao" p:viewName="userView" />
 
 	<bean name="/user_delete.html"
-		class="com.onecloud.autotools.web.IdentifiableEntityDeleteController"
+		class="com.kubeclouds.web.IdentifiableEntityDeleteController"
 		p:dao-ref="userDao" />
 
 	<bean name="/regions.html"
-		  class="com.onecloud.autotools.web.IdentifiableEntityListController"
+		  class="com.kubeclouds.web.IdentifiableEntityListController"
 		  p:dao-ref="regionDao" p:viewName="regionList" />
 
 	<bean name="/countries.html"
-		  class="com.onecloud.autotools.web.CountryListController"
+		  class="com.kubeclouds.web.CountryListController"
 		  p:dao-ref="regionDao" p:viewName="countryList" />
 
 	<bean name="/locations.html"
-		  class="com.onecloud.autotools.web.LocationListController"
+		  class="com.kubeclouds.web.LocationListController"
 		  p:dao-ref="countryDao" p:viewName="locationList" />
 
 	<bean name="/departments.html"
-		  class="com.onecloud.autotools.web.DepartmentListController"
+		  class="com.kubeclouds.web.DepartmentListController"
 		  p:dao-ref="locationDao" p:viewName="departmentList" />
 
 	<bean name="/employee_details.html"
-		  class="com.onecloud.autotools.web.IdentifiableEntityListController"
+		  class="com.kubeclouds.web.IdentifiableEntityListController"
 		  p:dao-ref="employeeDao" p:viewName="employeeList" />
 
 	<bean name="/employee.html"
-		  class="com.onecloud.autotools.web.IdentifiableEntityGetController"
+		  class="com.kubeclouds.web.IdentifiableEntityGetController"
 		  p:dao-ref="employeeDao" p:viewName="employeeView" />
 
 	<bean id="exceptionResolver"

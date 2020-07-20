@@ -54,7 +54,7 @@
 	<!--<password-encoder ref="passwordEncoder" />  -->
 
 	<beans:bean id="userDetailsService"
-		class="com.onecloud.autotools.security.DefaultUserDetailsService" />
+		class="com.kubeclouds.security.DefaultUserDetailsService" />
 <!-- 
 	<beans:bean id="passwordEncoder"
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder">

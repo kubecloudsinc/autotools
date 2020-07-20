@@ -62,14 +62,7 @@
 		<property name="hibernate.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</property> 
 		-->
 
-		<!-- Map all of our Hibernate-managed entity classes 
-		<mapping class="com.cisco.cstg.autotools.domain.Test" />
-		<mapping class="com.cisco.cstg.autotools.domain.TestSuite" />
-		<mapping class="com.cisco.cstg.autotools.domain.TestSuiteTest" />
-		<mapping class="com.cisco.cstg.autotools.domain.TestSuiteStatus" />
-		<mapping class="com.cisco.cstg.autotools.domain.TestStatus" />
-		<mapping class="com.cisco.cstg.autotools.domain.User" />
-		<mapping class="com.cisco.cstg.autotools.domain.Schedule" />
+		<!-- Map all of our Hibernate-managed entity classes
 		-->
 
 	</session-factory>

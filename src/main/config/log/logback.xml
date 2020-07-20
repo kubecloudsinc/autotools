@@ -72,7 +72,7 @@
 	
 	<logger name="net.sf.ehcache" level="INFO" />
 	
-	<logger name="com.cisco.cstg.autotools" level="DEBUG" >
+	<logger name="com.kubeclouds" level="DEBUG" >
 		<appender-ref ref="CLASSFILE" />
 	</logger>
 	
