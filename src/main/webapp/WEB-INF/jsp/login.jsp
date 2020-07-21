@@ -15,14 +15,18 @@
 		<c:if test="${not empty sessionScope.SPRING_SECURITY_LAST_EXCEPTION}">
 			<spring:message var="errorTitle"
 				code="loginError.${f:getType(sessionScope.SPRING_SECURITY_LAST_EXCEPTION)}"
-				text="Your login attempt was not successful, please try again." />
+				text="correct password." />
 			<spring:message var="errorMessage"
 				code="loginErrorExtra.${f:getType(sessionScope.SPRING_SECURITY_LAST_EXCEPTION)}"
 				text="${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}" />
 			<c:set scope="session" var="SPRING_SECURITY_LAST_EXCEPTION"
 				value="${null}" />
+		<%--
 			<tags:alert type="error" title="${errorTitle}"
 				message="${errorMessage}" />
+				--%>
+			<tags:alert type="error" title="${errorTitle}"
+				message="Check the password" />
 		</c:if>
 		<form action="<c:url value='/security_check.html'/>" method="post"
 			class="form-horizontal">

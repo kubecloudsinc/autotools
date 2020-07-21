@@ -18,7 +18,7 @@
       <tags:textInput path="lastName" label="Last Name" required="${true}"/>
       <tags:textInput path="title" label="Title" />
       <tags:textInput path="organization" label="Organization" />
-      <tags:textInput path="email" label="Email" required="${true}" autocomplete="off"/>
+      <tags:textInput path="email" label="Email" required="${true}" autocomplete="off" readonly="${true}" />
     </spring:nestedPath>
     <c:set var="passwordRequired" value="${not userAndPassword.user.idSet}"/>
     <tags:passwordInput path="password" label="Password" autocomplete="off" 

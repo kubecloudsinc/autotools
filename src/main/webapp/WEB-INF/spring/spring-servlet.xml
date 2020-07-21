@@ -58,7 +58,7 @@
 
 	<bean name="/countries.html"
 		  class="com.kubeclouds.web.CountryListController"
-		  p:dao-ref="regionDao" p:viewName="countryList" />
+		  p:countryDao-ref="countryDao" p:dao-ref="regionDao" p:viewName="countryList" />
 
 	<bean name="/locations.html"
 		  class="com.kubeclouds.web.LocationListController"

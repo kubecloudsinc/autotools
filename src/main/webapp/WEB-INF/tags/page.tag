@@ -48,7 +48,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="<c:url value='/user_profile.html'/>">My
 											Profile</a></li>
-									<li><a href="<c:url value='/logout.html'/>">Logout</a></li>
+									<li><a href="<c:url value='/home.html'/>">Logout</a></li>
 								</ul></li>
 						</security:authorize>
 						<security:authorize ifAllGranted="ROLE_ADMIN">
@@ -56,10 +56,22 @@
 								href="<c:url value='/users.html'/>">List Application Users</a></li>
 						</security:authorize>
 						<security:authorize ifAllGranted="ROLE_USER">
-						    <li class="${nav eq 'employees'? 'active' : ''}"><a href="<c:url value='/employee_details.html'/>">
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown"> ${fn:escapeXml(authUser.name)} <b
+									class="caret"></b>
+							</a>
+								<ul class="dropdown-menu">
+									<li><a href="<c:url value='/user_profile.html'/>">My
+											Profile</a></li>
+									<li><a href="<c:url value='/home.html'/>">Logout</a></li>
+								</ul></li>
+						    <li class="${nav eq 'employees'? 'active' : ''}"><a href="<c:url value='/regions.html'/>">
 									       Employee Details</a></li>
               	            <li class="${nav eq 'regions'? 'active' : ''}">
-              	               <a href="<c:url value='/regions.html'/>">Region Details</a></li>
+                                <c:url var="viewUrl" value="/countries.html">
+                                  <c:param name="id" value="1"/>
+                                </c:url>
+              	                <a href="${viewUrl}">Region Details</a></li>
 						</security:authorize>
 					</ul>
 				</div>
