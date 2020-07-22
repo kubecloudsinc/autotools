@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.ParameterizableViewController;
 import com.kubeclouds.dao.IdentifiableEntityDao;
 
 public abstract class AbstractIdentifiableEntityController extends ParameterizableViewController {
+
     protected IdentifiableEntityDao<IdentifiableEntity> dao;
 
     // mask the super's Apache Commons Logging by SLF4J

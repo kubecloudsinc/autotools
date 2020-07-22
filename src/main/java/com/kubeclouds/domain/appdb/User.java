@@ -1,17 +1,15 @@
 
 package com.kubeclouds.domain.appdb;
 
-import java.util.Date;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
-
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import java.util.Date;
 
 @Entity
 @Table(name = "AUTOTOOL_USER")
@@ -76,10 +74,7 @@ public class User extends IdentifiableEntity {
         this.lastName = lastName;
     }
 
-    @Email
     @Size(max = 64)
-    @NotEmpty
-    @NotNull
     @Column(name="EMAIL", length = 64, unique = true, nullable = false)
     public String getEmail() {
         return this.email;

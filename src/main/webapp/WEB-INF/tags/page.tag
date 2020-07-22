@@ -39,25 +39,34 @@
 							<li><a href="<c:url value='/login.html'/>">Login</a></li>
 						</security:authorize>
 						<security:authorize ifAllGranted="ROLE_USER">
-							<a class="brand" href="<c:url value='/home.html'/>">Auto
-								Tools</a>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown"> ${fn:escapeXml(authUser.name)} <b
-									class="caret"></b>
-							</a>
+						    <li class="${nav eq 'home'? 'active' : ''}">
+							    <a class="brand" href="<c:url value='/home.html'/>">Auto Tools</a>
+							</li>
+							<li class="dropdown ${nav eq 'add_user'? 'active' : ''}"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							    ${fn:escapeXml(authUser.name)} <b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li><a href="<c:url value='/user_profile.html'/>">My
 											Profile</a></li>
 									<li><a href="<c:url value='/logout.html'/>">Logout</a></li>
-								</ul></li>
+								</ul>
+                            </li>
 						</security:authorize>
 						<security:authorize ifAllGranted="ROLE_ADMIN">
 							<li class="${nav eq 'users'? 'active' : ''}"><a
 								href="<c:url value='/users.html'/>">List Application Users</a></li>
 						</security:authorize>
 						<security:authorize ifAllGranted="ROLE_USER">
-						    <li class="${nav eq 'employees'? 'active' : ''}"><a href="<c:url value='/employee_details.html'/>">
-									       Employee Details</a></li>
+                            <li class="dropdown ${nav eq 'employees'? 'active' : ''}">
+                                <a href="#" class="dropdown-toggle"	data-toggle="dropdown">
+                                       Employee Information <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                     <li class="${nav eq 'employees'? 'active' : ''}">
+                                         <a href="<c:url value='/employee_details.html'/>">All Employees Details</a></li>
+                                    <li>
+                                    <a href="<c:url value='/employee_search.html'/>">Employee Search</a></li>
+                                </ul>
+                            </li>
+
               	            <li class="${nav eq 'regions'? 'active' : ''}">
               	               <a href="<c:url value='/regions.html'/>">Region Details</a></li>
 						</security:authorize>

@@ -19,4 +19,12 @@ public class HibernateEmployeeDao extends AbstractHibernateDao<Employee> impleme
     public Employee getByEmail(String email) throws DataAccessException {
         return super.findOne("from Employee where email=?", email);
     }
+
+    @Transactional(readOnly = true, value="txManager")
+    @Override
+    public Employee getByFirstAndLastName(String firstName, String lastName) throws DataAccessException {
+        return super.findOne
+                ("from Employee where lower(firstName)=? and lower(lastName)=?"
+                        , firstName.toLowerCase(),lastName.toLowerCase());
+    }
 }
