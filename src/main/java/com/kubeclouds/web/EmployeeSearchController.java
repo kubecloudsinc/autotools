@@ -44,20 +44,29 @@ public class EmployeeSearchController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String processSubmit(@ModelAttribute("employeeDTO")
-                                @Valid EmployeeDTO employeeDTO, BindingResult result, SessionStatus status) {
+                                @Valid EmployeeDTO employeeDTO,
+                                BindingResult result, SessionStatus status) {
         if (!result.hasErrors()) {
             Employee employee =
                     employeeDao.getByFirstAndLastName(employeeDTO.getFirstName(),employeeDTO.getLastName());
-            employeeDTO.transfromFromObject(employee);
+            employeeDTO.setSearchComplete(true);
+            if(employee!=null) {
+                employeeDTO.setFoundResult(true);
+                employeeDTO.transfromFromObject(employee);
+            }else{
+//                employeeDTO.setSearchComplete(true);
+                employeeDTO.setFoundResult(false);
+            }
+
             status.setComplete();
         }
         return "employeeSearch";
-
     }
 
     @RequestMapping(method = RequestMethod.GET)
     protected ModelAndView handleRequestInternal() throws Exception {
-        ModelAndView mav = new ModelAndView("employeeSearch").addObject(new EmployeeDTO());
+        ModelAndView mav = new ModelAndView("employeeSearch")
+                .addObject(new EmployeeDTO());
         return mav;
     }
 }

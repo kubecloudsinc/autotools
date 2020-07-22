@@ -50,7 +50,7 @@
     </div>
     <div class="page-header"></div>
     <c:choose>
-     <c:when test="${not empty employeeDTO.id}">
+     <c:when test="${employeeDTO.foundResult}">
       <div class="page-header">
         <h1>${employeeDTO.firstName} ${employeeDTO.lastName}</h1>
       </div>
@@ -115,5 +115,22 @@
          </c:otherwise>
       </c:choose>
      </c:when>
+     <c:otherwise>
+        <c:choose>
+         <c:when test="${employeeDTO.searchComplete}">
+            <table class="table table-striped table-hover">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                           An employee by the name <strong>${employeeDTO.firstName} ${employeeDTO.lastName}</strong> is not present.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+         </c:when>
+        </c:choose>
+     </c:otherwise>
     </c:choose>
 </tags:page>

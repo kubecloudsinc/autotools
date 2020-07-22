@@ -13,6 +13,10 @@ import java.util.Set;
 
 public class EmployeeDTO {
 
+    private boolean searchComplete=false;
+
+    private boolean foundResult=false;
+
     private Long id;
 
     private String firstName;
@@ -115,6 +119,22 @@ public class EmployeeDTO {
 
     public void setJobHistory(Set<JobHistory> jobHistory) {
         this.jobHistory = jobHistory;
+    }
+
+    public boolean getSearchComplete() {
+        return searchComplete;
+    }
+
+    public void setSearchComplete(boolean searchComplete) {
+        this.searchComplete = searchComplete;
+    }
+
+    public boolean getFoundResult() {
+        return foundResult;
+    }
+
+    public void setFoundResult(boolean foundResult) {
+        this.foundResult = foundResult;
     }
 
     public void transfromFromObject(Employee employee){
