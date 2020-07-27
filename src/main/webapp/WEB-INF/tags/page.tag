@@ -55,7 +55,7 @@
                             <li class="dropdown ${nav eq 'employees'? 'active' : ''}"><a href="#" class="dropdown-toggle"	data-toggle="dropdown">
                                 Employee Information <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                     <li><a href="<c:url value='/employee_details.html'/>">All Employees Details</a></li>
+                                     <li class="${nav eq 'employees'? 'active' : ''}"><a href="<c:url value='/employee_details.html'/>">All Employees Details</a></li>
                                      <li><a href="<c:url value='/employee_search.html'/>">Employee Search</a></li>
                                 </ul>
                             </li>

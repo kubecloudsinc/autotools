@@ -8,11 +8,14 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="f" uri="/WEB-INF/functions.tld"%>
 <tags:page title="User Form" nav="add_user">
-  <c:if test="${not empty param.success}">
-    <tags:alert type="success" title="Success!" message="Saved user."/>
-  </c:if>
   <form:form commandName="userAndPassword" cssClass="form-horizontal">
-    <tags:showFormErrors name="userAndPassword"/>
+    <c:set var="errors">
+       <tags:showFormErrors name="userAndPassword"/>
+    </c:set>
+    <c:if test="${empty errors and param.success}">
+        <tags:alert type="success" title="Success!" message="Saved user."/>
+    </c:if>
+    ${errors}
     <spring:nestedPath path="user">
       <tags:textInput path="firstName" label="First Name" required="${true}"/>
       <tags:textInput path="lastName" label="Last Name" required="${true}"/>

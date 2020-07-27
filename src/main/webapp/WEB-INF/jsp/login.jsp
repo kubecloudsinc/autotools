@@ -15,7 +15,7 @@
 		<c:if test="${not empty sessionScope.SPRING_SECURITY_LAST_EXCEPTION}">
 			<spring:message var="errorTitle"
 				code="loginError.${f:getType(sessionScope.SPRING_SECURITY_LAST_EXCEPTION)}"
-				text="correct password." />
+				text="Your login attempt was not successful, please try again." />
 			<spring:message var="errorMessage"
 				code="loginErrorExtra.${f:getType(sessionScope.SPRING_SECURITY_LAST_EXCEPTION)}"
 				text="${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}" />

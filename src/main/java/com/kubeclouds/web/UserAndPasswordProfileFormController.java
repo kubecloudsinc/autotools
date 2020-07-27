@@ -1,6 +1,8 @@
 
 package com.kubeclouds.web;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import com.kubeclouds.domain.appdb.User;
@@ -13,14 +15,13 @@ import org.springframework.dao.ConcurrencyFailureException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping({"/user_profile.html", "/user_register.html"})
@@ -59,9 +60,15 @@ public class UserAndPasswordProfileFormController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String processSubmit(@ModelAttribute("userAndPassword")
-    @Valid
-    UserAndPassword userAndPassword, BindingResult result, SessionStatus status) {
+    public String processSubmit(@ModelAttribute("userAndPassword") @Valid UserAndPassword userAndPassword,
+                BindingResult result, @RequestParam(value = "success", required = false) Boolean success,SessionStatus status,
+                                HttpServletRequest request) {
+        if(success!=null){
+            logger.debug("the success is "+Boolean.valueOf(success).toString());
+            success=false;
+        }else{
+            logger.debug("the success is null");
+        }
         if (!result.hasErrors()) {
             try {
                 User user = userAndPassword.getUser();
@@ -82,6 +89,13 @@ public class UserAndPasswordProfileFormController {
             } catch (ConcurrencyFailureException e) {
                 result.reject("ConcurrentModificatonFailure");
             }
+        }else{
+            List<FieldError> errors= result.getFieldErrors();
+            logger.debug("The errors: "+errors.size());
+            for (FieldError error : errors){
+                logger.debug(error.toString());
+            }
+           request.removeAttribute("success");
         }
         return "userForm";
     }

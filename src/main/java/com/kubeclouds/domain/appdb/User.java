@@ -40,6 +40,7 @@ public class User extends IdentifiableEntity {
 
     private int version = 0;
 
+    @Size(max = 64)
     @Column(name="TITLE")
     public String getTitle() {
         return this.title;
@@ -49,6 +50,7 @@ public class User extends IdentifiableEntity {
         this.title = title;
     }
 
+    @NotEmpty
     @Size(max = 20)
     @Column(name="FIRST_NAME", length = 20, nullable = false)
     public String getFirstName() {
