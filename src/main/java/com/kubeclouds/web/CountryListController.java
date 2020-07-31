@@ -17,22 +17,12 @@ import java.util.Set;
 
 public class CountryListController extends AbstractIdentifiableEntityController {
 
-    protected CountryDao countryDao;
-
-    // mask the super's Apache Commons Logging by SLF4J
-    protected Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    @Required
-    public void setCountryDao(CountryDao dao) {
-        this.countryDao = dao;
-    }
-
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest request,
-            HttpServletResponse response) throws Exception {
+                                                 HttpServletResponse response) throws Exception {
         long id = ServletRequestUtils.getRequiredLongParameter(request, "id");
         Region region = (Region) super.dao.getById(new Long(id));
-        List<Country> result = countryDao.getAll();
+        Set<Country> result = region.getCountries();
         logger.debug("Got {} entities", result.size());
         ModelAndView mav = new ModelAndView(super.getViewName());
         mav.addObject(result);

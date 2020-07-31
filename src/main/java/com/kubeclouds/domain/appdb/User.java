@@ -61,6 +61,7 @@ public class User extends IdentifiableEntity {
         this.firstName = firstName;
     }
 
+    @NotEmpty
     @Size(max = 20)
     @Column(name="LAST_NAME", length = 20, nullable = false)
     public String getLastName() {

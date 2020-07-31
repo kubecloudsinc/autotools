@@ -4,7 +4,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="f" uri="/WEB-INF/functions.tld"%>
-<tags:page title="Deprtments at ${location.postalCode}, ${location.city}  " nav="regions">
+<tags:page title="Departments at ${location.postalCode}, ${location.city}  " nav="regions">
   <c:choose>
     <c:when test="${fn:length(departmentList) == 0}">
       <p>No Departments</p>

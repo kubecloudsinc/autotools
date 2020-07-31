@@ -26,7 +26,7 @@
 				message="${errorMessage}" />
 				--%>
 			<tags:alert type="error" title="${errorTitle}"
-				message="Check the password" />
+				message="Bad credentials" />
 		</c:if>
 		<form action="<c:url value='/security_check.html'/>" method="post"
 			class="form-horizontal">
